@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Diagonal Difference", "1. Diagonal Difference\1. Diagonal Difference.csproj", "{89A2DBB4-DD4D-4989-AA6A-9F10028CCB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Squares in Matrix", "2. Squares in Matrix\2. Squares in Matrix.csproj", "{76FE7244-F94B-4CCC-BB46-C62D65208513}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Maximal Sum", "3. Maximal Sum\3. Maximal Sum.csproj", "{CC223A14-E4C1-43F4-92D7-72CD89AA3495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Matrix shuffling", "4. Matrix shuffling\4. Matrix shuffling.csproj", "{53B57253-3D00-45D8-8C7F-8845C33371DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. Snake Moves", "5. Snake Moves\5. Snake Moves.csproj", "{43BE6832-20B6-48FC-9879-FE7BFB005B9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6. Bomb the Basement", "6. Bomb the Basement\6. Bomb the Basement.csproj", "{D0810EB9-CF38-44C8-932F-3F48966E10AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7. Knight Game", "7. Knight Game\7. Knight Game.csproj", "{324E83B5-1CD9-48A8-B810-D8DA6D8593E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89A2DBB4-DD4D-4989-AA6A-9F10028CCB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A2DBB4-DD4D-4989-AA6A-9F10028CCB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A2DBB4-DD4D-4989-AA6A-9F10028CCB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A2DBB4-DD4D-4989-AA6A-9F10028CCB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76FE7244-F94B-4CCC-BB46-C62D65208513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FE7244-F94B-4CCC-BB46-C62D65208513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FE7244-F94B-4CCC-BB46-C62D65208513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FE7244-F94B-4CCC-BB46-C62D65208513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC223A14-E4C1-43F4-92D7-72CD89AA3495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC223A14-E4C1-43F4-92D7-72CD89AA3495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC223A14-E4C1-43F4-92D7-72CD89AA3495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC223A14-E4C1-43F4-92D7-72CD89AA3495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B57253-3D00-45D8-8C7F-8845C33371DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B57253-3D00-45D8-8C7F-8845C33371DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B57253-3D00-45D8-8C7F-8845C33371DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B57253-3D00-45D8-8C7F-8845C33371DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43BE6832-20B6-48FC-9879-FE7BFB005B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BE6832-20B6-48FC-9879-FE7BFB005B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BE6832-20B6-48FC-9879-FE7BFB005B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BE6832-20B6-48FC-9879-FE7BFB005B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0810EB9-CF38-44C8-932F-3F48966E10AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0810EB9-CF38-44C8-932F-3F48966E10AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0810EB9-CF38-44C8-932F-3F48966E10AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0810EB9-CF38-44C8-932F-3F48966E10AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324E83B5-1CD9-48A8-B810-D8DA6D8593E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324E83B5-1CD9-48A8-B810-D8DA6D8593E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324E83B5-1CD9-48A8-B810-D8DA6D8593E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324E83B5-1CD9-48A8-B810-D8DA6D8593E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55C8CBF5-EB9C-4C07-B491-054BA2460E0D}
+	EndGlobalSection
+EndGlobal
