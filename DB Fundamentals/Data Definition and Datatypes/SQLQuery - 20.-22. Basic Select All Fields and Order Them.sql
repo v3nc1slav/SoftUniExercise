@@ -1,0 +1,37 @@
+USE SoftUni
+GO
+
+--20PROBLEM
+SELECT * 
+FROM Towns 
+ORDER BY NAME ASC;
+
+SELECT *
+FROM Departments
+ORDER BY NAME ASC;
+
+SELECT *
+FROM Employees
+ORDER BY Salary DESC;
+
+--21 PROBLEM
+SELECT NAME
+FROM Towns 
+ORDER BY NAME ASC;
+
+SELECT NAME
+FROM Departments
+ORDER BY NAME ASC;
+
+SELECT FirstName, LastName, JobTitle, Salary
+FROM Employees
+ORDER BY Salary DESC;
+
+--22 PROBLEM
+UPDATE Employees
+SET Salary = Salary*1.1;
+
+
+SELECT Salary
+FROM Employees
+
