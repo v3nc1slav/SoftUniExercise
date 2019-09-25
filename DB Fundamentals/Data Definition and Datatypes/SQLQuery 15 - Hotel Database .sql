@@ -19,7 +19,7 @@ VALUES
 
 CREATE TABLE Customers
 (
-             AccountNumber   INT
+             AccountNumber   NVARCHAR(50)
              PRIMARY KEY NOT NULL,
              FirstName       NVARCHAR(50) NOT NULL,
              LastName        NVARCHAR(50) NOT NULL,
@@ -32,9 +32,9 @@ CREATE TABLE Customers
 INSERT INTO Customers(AccountNumber, FirstName, LastName, EmergencyName, EmergencyNumber )
 
 VALUES
-( 1, 'First', 'Customer', 'Em1', 11111),
-( 2, 'Second','Customer', 'Em2', 22222),
-( 3, 'Third', 'Customer', 'Em3', 33333);
+( '1', 'First', 'Customer', 'Em1', 11111),
+( '2', 'Second','Customer', 'Em2', 22222),
+( '3', 'Third', 'Customer', 'Em3', 33333);
 
 CREATE TABLE RoomStatus
 (
@@ -87,12 +87,8 @@ CREATE TABLE Rooms
              Notes      NVARCHAR(MAX)
 );
 
-INSERT INTO Rooms(RoomNumber,
-                  RoomType,
-                  BedType,
-                  Rate,
-                  RoomStatus
-                 )
+INSERT INTO Rooms(RoomNumber, RoomType, BedType, Rate, RoomStatus )
+
 VALUES
 ( 1,'Luxory','King', 100, 'Reserved'),
 ( 2,'Casual','Double',50,'In use'),
@@ -121,18 +117,8 @@ ADD CONSTRAINT CK_TotalDays CHECK(DATEDIFF(DAY, FirstDateOccupied, LastDateOccup
 ALTER TABLE Payments
 ADD CONSTRAINT CK_TaxAmount CHECK(TaxAmount = TotalDays * TaxRate);
 
-INSERT INTO Payments(Id,
-                     EmployeeId,
-                     PaymentDate,
-                     AccountNumber,
-                     FirstDateOccupied,
-                     LastDateOccupied,
-                     TotalDays,
-                     AmountCharged,
-                     TaxRate,
-                     TaxAmount,
-                     PaymentTotal
-                    )
+INSERT INTO Payments(Id, EmployeeId, PaymentDate, AccountNumber, FirstDateOccupied, LastDateOccupied,
+                     TotalDays, AmountCharged, TaxRate, TaxAmount, PaymentTotal )
 VALUES
 ( 1, 1, '10-05-2015', 1,'10-05-2015','10-10-2015', 5, 75, 50, 250, 75),
 ( 2, 3, '10-11-2015', 1,'12-15-2015','12-25-2015', 10, 100, 50, 500, 100),
@@ -151,13 +137,8 @@ CREATE TABLE Occupancies
              Notes         NVARCHAR(MAX)
 );
 
-INSERT INTO Occupancies(Id,
-                        EmployeeId,
-                        DateOccupied,
-                        AccountNumber,
-                        RoomNumber,
-                        PhoneCharge
-                       )
+INSERT INTO Occupancies(Id, EmployeeId, DateOccupied, AccountNumber, RoomNumber, PhoneCharge )
+
 VALUES
 ( 1, 2,'08-24-2012', 3, 1,'088 88 888 888'),
 ( 2, 3,'06-15-2015', 2, 3,'088 88 555 555'),
