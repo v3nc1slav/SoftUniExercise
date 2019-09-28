@@ -29,3 +29,24 @@ ORDER BY Salary
 SELECT *
 FROM Employees
 WHERE  JobTitle = 'Sales Representative';
+
+--PROBLEM 09
+SELECT FirstName, LastName, JobTitle
+FROM Employees
+WHERE Salary>=20000 AND Salary<=30000
+
+--PROBLEM 10
+SELECT FirstName+' '+MiddleName+' '+LastName AS 'Full Name'
+FROM Employees
+WHERE Salary IN (25000, 14000, 12500, 23600)
+
+--PROBLEM 11
+SELECT  FirstName, LastName
+FROM Employees
+WHERE ManagerID is null
+
+--PROBLEM 12
+SELECT  FirstName, LastName, Salary
+FROM Employees
+WHERE Salary >= 50000
+ORDER BY Salary DESC
