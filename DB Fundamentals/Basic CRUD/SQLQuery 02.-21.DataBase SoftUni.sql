@@ -50,3 +50,28 @@ SELECT  FirstName, LastName, Salary
 FROM Employees
 WHERE Salary >= 50000
 ORDER BY Salary DESC
+
+--PROBLEM 13
+SELECT TOP 5 FirstName, LastName
+FROM Employees
+ORDER BY Salary DESC
+
+--PROBLEM 14
+SELECT  FirstName, LastName
+FROM Employees
+WHERE DepartmentId != 4
+
+--PROBLEM 15
+SELECT *
+FROM Employees
+ORDER BY Salary DESC, FirstName, LastName DESC
+
+--PROBLEM 16
+CREATE VIEW [V_EmployeesSalaries] AS
+SELECT FirstName, LastName, Salary
+FROM Employees
+
+--PROBLEM 17
+CREATE VIEW V_EmployeeNameJobTitle  AS
+SELECT FirstName + ' '+ ISNULL(MiddleName, '')+' ' + LastName  AS 'Full Name' , JobTitle
+FROM Employees
