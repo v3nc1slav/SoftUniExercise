@@ -75,3 +75,32 @@ FROM Employees
 CREATE VIEW V_EmployeeNameJobTitle  AS
 SELECT FirstName + ' '+ ISNULL(MiddleName, '')+' ' + LastName  AS 'Full Name' , JobTitle
 FROM Employees
+
+--PROBLEM 18
+SELECT DISTINCT JobTitle
+FROM Employees
+ORDER BY JobTitle
+
+--PROBLEM 19
+SELECT TOP 10 *
+FROM Projects
+ORDER BY StartDate , Name
+
+--PROBLEM 20
+SELECT TOP 7  FirstName, LastName, HireDate
+FROM Employees
+ORDER BY HireDate DESC
+
+--PROBLEM 21
+
+SELECT  *
+INTO Bufer	
+FROM Employees
+
+UPDATE Employees
+SET Salary = Salary*1.12
+WHERE DepartmentID IN (SELECT DepartmentID FROM Departments
+WHERE Name IN ('Engineering', 'Tool Design', 'Marketing', 'Information Services'))
+
+SELECT Salary
+FROM Employees
