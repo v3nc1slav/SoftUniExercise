@@ -19,3 +19,29 @@ WHERE(DepartmentID = 3
 SELECT FirstName, LastName
 FROM Employees
 WHERE  JobTitle  NOT LIKE  '%engineer%';
+
+--PROBLEM 05
+SELECT Name
+FROM Towns 
+WHERE LEN(Name) BETWEEN 5 AND 6
+ORDER BY Name
+
+--PROBLEM 06
+SELECT *
+FROM Towns
+WHERE LEFT(Name, 1) IN ('M', 'K', 'B', 'E')
+ORDER BY Name
+
+-- PROBLEM 07
+SELECT *
+FROM Towns
+WHERE NOT LEFT(Name, 1) IN ('R', 'D', 'B')
+ORDER BY Name
+
+-- PROBLEM 08
+CREATE VIEW V_EmployeesHiredAfter2000 
+AS
+     SELECT FirstName,
+            LastName
+     FROM Employees
+     WHERE DATEPART(YEAR, HireDate) > 2000;
