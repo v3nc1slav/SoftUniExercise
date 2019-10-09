@@ -45,3 +45,25 @@ AS
             LastName
      FROM Employees
      WHERE DATEPART(YEAR, HireDate) > 2000;
+
+-- PROBLEM 09
+ SELECT FirstName, LastName
+ FROM Employees
+ WHERE LEN(LastName) =5
+
+ --PROBLEM 10
+ SELECT EmployeeID, FirstName, LastName, Salary,
+              DENSE_RANK() over (partition by Salary ORDER BY EmployeeID) AS Rank
+       FROM Employees
+       WHERE Salary BETWEEN 10000 AND 50000
+ORDER BY Salary DESC
+
+ --PROBLEM 11
+ SELECT *
+FROM (
+ SELECT EmployeeID, FirstName, LastName, Salary,
+              DENSE_RANK() over (partition by Salary ORDER BY EmployeeID) AS Rank
+       FROM Employees
+       WHERE Salary BETWEEN 10000 AND 50000) AS MyTable
+WHERE Rank = 2
+ORDER BY Salary DESC
