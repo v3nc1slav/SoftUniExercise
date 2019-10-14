@@ -50,3 +50,58 @@ SELECT DepositGroup, MagicWandCreator,
 FROM WizzardDeposits
 GROUP BY DepositGroup , MagicWandCreator
 
+--PROBLEM 09
+SELECT AgeGroup, COUNT(AgeGroup) AS WizardCount
+FROM(
+SELECT 
+	CASE
+		 WHEN Age BETWEEN 0 AND 10 THEN '[0-10]'
+		 WHEN Age BETWEEN 11 AND 20 THEN '[11-20]'
+		 WHEN Age BETWEEN 21 AND 30 THEN '[21-30]'
+		 WHEN Age BETWEEN 31 AND 40 THEN '[31-40]'
+		 WHEN Age BETWEEN 41 AND 50 THEN '[41-50]'
+		 WHEN Age BETWEEN 51 AND 60 THEN '[51-60]'
+		 ELSE '[61+]'
+	END AS AgeGroup
+FROM WizzardDeposits) AS MY
+GROUP BY AgeGroup
+
+--PROBLEM 10
+--FIRST SOLUTION
+SELECT DISTINCT LEFT(FirstName, 1 ) AS FirstLetter
+FROM WizzardDeposits
+WHERE DepositGroup = 'Troll Chest'
+ORDER BY FirstLetter
+
+--PROBLEM 10
+--SECAND SOLUTION
+SELECT FirstLetter
+FROM(
+SELECT LEFT(FirstName, 1 ) AS FirstLetter
+FROM WizzardDeposits
+WHERE DepositGroup = 'Troll Chest') AS MY
+GROUP BY FirstLetter
+ORDER BY FirstLetter
+
+--PROBLEM 11
+SELECT DepositGroup, IsDepositExpired,
+		AVG(DepositInterest) AS AverageInterest
+FROM WizzardDeposits
+WHERE DepositStartDate > '1985/01/01'
+GROUP BY DepositGroup, IsDepositExpired
+ORDER BY DepositGroup DESC , IsDepositExpired
+
+
+--PROBLEM 12
+SELECT SUM(Difference)
+FROM(
+ SELECT DepositAmount -
+    (
+        SELECT DepositAmount
+        FROM WizzardDeposits AS wsd
+        WHERE wsd.Id = wd.Id + 1
+    ) AS Difference
+FROM WizzardDeposits AS wd
+)AS MY
+
+
