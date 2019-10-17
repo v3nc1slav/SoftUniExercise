@@ -24,7 +24,11 @@ WHERE AssigneeId = 6
 
 --04
 
+DELETE FROM Issues
+WHERE RepositoryId = 3
 
+DELETE FROM RepositoriesContributors
+WHERE RepositoryId = 3
 
 --05
 SELECT c.ID, c.MESSAGE, c.RepositoryId, c.ContributorId
