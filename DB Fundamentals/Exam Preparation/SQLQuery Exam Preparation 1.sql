@@ -57,3 +57,23 @@ FULL JOIN Passengers AS p ON t.PassengerId = p.Id
 WHERE t.Id IS NULL 
 ORDER BY  Age DESC, FirstName,	LastName
 
+--09
+SELECT p.FirstName + ' ' +p.LastName AS [Full Name],pl.Name, f.Origin+' - '+f.Destination AS Trip, lt.Type
+FROM Passengers AS p
+JOIN Tickets AS t ON t.PassengerId = p.Id
+JOIN Flights AS f ON f.Id = t.FlightId
+JOIN Planes AS pl ON pl.Id = f.PlaneId
+JOIN Luggages AS l ON t.LuggageId = l.Id
+JOIN LuggageTypes AS lt ON lt.Id = l.LuggageTypeId
+ORDER BY [Full Name],pl.Name, Trip, lt.Type
+
+--10
+SELECT p.Name , p.Seats,  COUNT(t.Id) AS [Passengers Count]
+FROM Planes AS P
+LEFT JOIN Flights AS f ON p.Id = f.PlaneId
+LEFT JOIN Tickets AS t ON f.Id = t.FlightId
+GROUP BY p.Name ,P.Seats
+ORDER BY  [Passengers Count] DESC, p.Name, p.Seats
+
+
+
