@@ -55,3 +55,26 @@ FROM Employees
   JOIN EmployeesProjects ON EmployeesProjects.EmployeeID = Employees.EmployeeID
   JOIN Projects ON EmployeesProjects.ProjectID = Projects.ProjectID 
 WHERE Employees.EmployeeID = 24 
+
+--PROBLEM 09
+SELECT e.EmployeeID, e.FirstName, e.ManagerID, m.FirstName AS ManagerName
+FROM Employees AS e
+	JOIN Employees AS m ON e.ManagerID = m.EmployeeID
+WHERE e.ManagerID = 3 or e.ManagerID = 7
+ORDER BY EmployeeID 
+
+--PROBLEM 10
+SELECT TOP(50) e.EmployeeID, e.FirstName + ' ' + e.LastName AS EmployeeName, 
+				m.FirstName + ' '+m.LastName AS ManagerName, d.Name
+FROM Employees AS e
+	JOIN Employees AS m ON e.ManagerID = m.EmployeeID
+	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
+ORDER BY EmployeeID 
+
+--PROBLEM 11
+SELECT TOP(1) AVG(Salary) AS MinAverageSalary
+FROM Employees AS e
+	JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
+GROUP BY  d.Name
+ORDER BY AVG(Salary)
+
