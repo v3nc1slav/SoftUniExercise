@@ -13,6 +13,7 @@ namespace P01_HospitalDatabase.Data.Models
         [Required]
         public string Name  { get; set; }
         public int PatientMedicamentId { get; set; }
-        public ICollection<PatientMedicament> Prescriptions { get; set; }
+        public ICollection<PatientMedicament> Prescriptions { get; set; } = new HashSet<PatientMedicament>();
+
     }
 }

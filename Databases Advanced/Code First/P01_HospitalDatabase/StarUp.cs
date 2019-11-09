@@ -1,4 +1,5 @@
-﻿using System;
+﻿using P01_HospitalDatabase.Data;
+using System;
 
 namespace P01_HospitalDatabase
 {
@@ -6,7 +7,11 @@ namespace P01_HospitalDatabase
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (HospitalContext context = new HospitalContext())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+            }
         }
     }
 }

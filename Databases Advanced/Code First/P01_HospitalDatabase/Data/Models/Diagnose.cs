@@ -19,6 +19,6 @@ namespace P01_HospitalDatabase.Data.Models
         [Required]
         public string Comments { get; set; }
         public int PatientId { get; set; }
-        public Patient Patients { get; set; }
+        public Patient Patient { get; set; }
     }
 }
