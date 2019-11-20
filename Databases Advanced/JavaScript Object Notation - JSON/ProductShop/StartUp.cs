@@ -31,12 +31,15 @@ namespace ProductShop
 
                 //var result = GetProductsInRange(db);//05
 
-                var result = GetSoldProducts(db);//06
+                //var result = GetSoldProducts(db);//06
+
+                var result = GetCategoriesByProductsCount(db);//07
+
+                //var result = GetUsersWithProducts(db);//08
 
                 Console.WriteLine(result);
             }
         }
-
         public static string ImportUsers(ProductShopContext context, string inputJson)
         {
             var users = JsonConvert.DeserializeObject<User[]>(inputJson);
@@ -60,7 +63,7 @@ namespace ProductShop
             var categories = JsonConvert.DeserializeObject<Category[]>(inputJson);
 
             context.AddRange(categories
-                .Where(c=>c.Name!=null)
+                .Where(c => c.Name != null)
                 );
             context.SaveChanges();
 
@@ -99,17 +102,17 @@ namespace ProductShop
                  .ThenBy(x => x.FirstName)
                  .Select(x => new
                  {
-                   firstName = x.FirstName,
-                   lastName = x.LastName,
-                   soldProducts = x.ProductsSold
+                     firstName = x.FirstName,
+                     lastName = x.LastName,
+                     soldProducts = x.ProductsSold
                       .Where(b => b.Buyer != null)
                       .Select(s => new
-                          {
-                            name = s.Name,
-                            price = s.Price,
-                            buyerFirstName = s.Buyer.FirstName,
-                            buyerLastName = s.Buyer.LastName
-                           }).ToArray()
+                      {
+                          name = s.Name,
+                          price = s.Price,
+                          buyerFirstName = s.Buyer.FirstName,
+                          buyerLastName = s.Buyer.LastName
+                      }).ToArray()
                  }).ToArray();
 
             var jsonUsers = JsonConvert.SerializeObject(users, new JsonSerializerSettings
@@ -118,5 +121,54 @@ namespace ProductShop
             });
             return jsonUsers;
         }//06 Select in select
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            var categories = context.Categories
+                .OrderByDescending(c => c.CategoryProducts.Count)
+                .Select(x => new
+                {
+                    category = x.Name,
+                    productsCount = x.CategoryProducts.Count,
+                    averagePrice = $"{x.CategoryProducts.Average(c => c.Product.Price):F2}",
+                    totalRevenue = $"{x.CategoryProducts.Sum(c => c.Product.Price)}"
+                })
+                .ToArray();
+
+            var jsonCategories = JsonConvert.SerializeObject(categories, new JsonSerializerSettings
+            {
+                Formatting = Formatting.Indented,
+            });
+            return jsonCategories;
+        }//07
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            var usersFiltered = context
+               .Users
+               .Where(u => u.ProductsSold.Any(ps => ps.Buyer != null))
+               .OrderByDescending(u => u.ProductsSold.Count(ps => ps.Buyer != null))
+               .Select(u => new
+               {
+                   u.FirstName,
+                   u.LastName,
+                   u.Age,
+                   SoldProducts = new
+                   {
+                       Count = u.ProductsSold.Count(p => p.Buyer != null),
+                       Products = u.ProductsSold
+                       .Where(ps => ps.Buyer != null).Select(p => new
+                       {
+                           p.Name,
+                           p.Price
+                       })
+                   }
+               })
+               .ToList();
+
+            var jsonCategories = JsonConvert.SerializeObject(usersFiltered, new JsonSerializerSettings
+            {
+                Formatting = Formatting.Indented,
+            });
+            return jsonCategories;
+        }//08
     }
 }
