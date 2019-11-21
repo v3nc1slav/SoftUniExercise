@@ -33,9 +33,9 @@ namespace ProductShop
 
                 //var result = GetSoldProducts(db);//06
 
-                var result = GetCategoriesByProductsCount(db);//07
+                //var result = GetCategoriesByProductsCount(db);//07
 
-                //var result = GetUsersWithProducts(db);//08
+                var result = GetUsersWithProducts(db);//08
 
                 Console.WriteLine(result);
             }
@@ -142,31 +142,42 @@ namespace ProductShop
         }//07
         public static string GetUsersWithProducts(ProductShopContext context)
         {
-            var usersFiltered = context
-               .Users
-               .Where(u => u.ProductsSold.Any(ps => ps.Buyer != null))
-               .OrderByDescending(u => u.ProductsSold.Count(ps => ps.Buyer != null))
-               .Select(u => new
-               {
-                   u.FirstName,
-                   u.LastName,
-                   u.Age,
-                   SoldProducts = new
-                   {
-                       Count = u.ProductsSold.Count(p => p.Buyer != null),
-                       Products = u.ProductsSold
-                       .Where(ps => ps.Buyer != null).Select(p => new
-                       {
-                           p.Name,
-                           p.Price
-                       })
-                   }
-               })
-               .ToList();
+            var users = context
+                .Users
+                .Where(u => u.ProductsSold.Any(p => p.Buyer != null))
+                .Select(u => new
+                {
+                    firstName = u.FirstName,
+                    lastName = u.LastName,
+                    age = u.Age,
+                    soldProducts = new
+                    {
+                        count = u.ProductsSold
+                            .Where(p => p.Buyer != null)
+                            .Count(),
+                        products = u.ProductsSold
+                               .Where(p => p.Buyer != null)
+                               .Select(p => new
+                               {
+                                   p.Name,
+                                   p.Price
+                               })
+                    }
+                }
+                )
+                .OrderBy(u => u.soldProducts.count)
+                .ToList();
 
-            var jsonCategories = JsonConvert.SerializeObject(usersFiltered, new JsonSerializerSettings
+            var usersOutput = new
+                {
+                    usersCount = users.Count,
+                    users = users
+                };
+
+            var jsonCategories = JsonConvert.SerializeObject(usersOutput, new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
+                NullValueHandling = NullValueHandling.Ignore
             });
             return jsonCategories;
         }//08
