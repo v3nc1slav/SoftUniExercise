@@ -144,7 +144,7 @@ namespace ProductShop
         {
             var users = context
                 .Users
-                .Where(u => u.ProductsSold.Any(p => p.Buyer != null))
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
                 .Select(u => new
                 {
                     firstName = u.FirstName,
@@ -153,25 +153,26 @@ namespace ProductShop
                     soldProducts = new
                     {
                         count = u.ProductsSold
-                            .Where(p => p.Buyer != null)
+                            .Where(p => p.BuyerId != null)
                             .Count(),
                         products = u.ProductsSold
-                               .Where(p => p.Buyer != null)
+                               .Where(p => p.BuyerId != null)
                                .Select(p => new
                                {
-                                   p.Name,
-                                   p.Price
+                                   name = p.Name,
+                                   price = p.Price
                                })
+                               .ToList()
                     }
                 }
                 )
-                .OrderBy(u => u.soldProducts.count)
+                .OrderByDescending(u => u.soldProducts.count)
                 .ToList();
 
             var usersOutput = new
                 {
                     usersCount = users.Count,
-                    users = users
+                    users
                 };
 
             var jsonCategories = JsonConvert.SerializeObject(usersOutput, new JsonSerializerSettings
