@@ -28,7 +28,15 @@ namespace CarDealer
                 //var inputJson = File.ReadAllText("./../../../Datasets/parts.json");//10
                 //var result = ImportParts(db, inputJson);//10
 
-  
+                //var inputJson = File.ReadAllText("./../../../Datasets/cars.json");//11
+                //var result = ImportCars(db, inputJson);//11
+
+                //var inputJson = File.ReadAllText("./../../../Datasets/customers.json");//12
+                //var result = ImportCars(db, inputJson);//12
+
+               
+
+                Console.WriteLine(result);
             }
         }
         public static string ImportSuppliers(CarDealerContext context, string inputJson)
@@ -50,7 +58,51 @@ namespace CarDealer
 
             return $"Successfully imported {output.Length}.";
         }//10
+        public static string ImportCars(CarDealerContext context, string inputJson)
+        {
+            var carsDto = JsonConvert.DeserializeObject<CarInsertDto[]>(inputJson);
 
+            var cars = new List<Car>();
+            var partCars = new List<PartCar>();
+
+            foreach (var carDto in carsDto)
+            {
+                var car = new Car
+                {
+                    Make = carDto.Make,
+                    Model = carDto.Model,
+                    TravelledDistance = carDto.TravelledDistance
+                };
+
+                foreach (var part in carDto.PartsId.Distinct())
+                {
+                    var partCar = new PartCar()
+                    {
+                        PartId = part,
+                        Car = car
+                    };
+                    partCars.Add(partCar);
+                }
+
+                cars.Add(car);
+            }
+
+            context.Cars.AddRange(cars);
+            context.PartCars.AddRange(partCars);
+            context.SaveChanges();
+
+            return $"Successfully imported {cars.Count}.";
+        }//11
+        public static string ImportCustomers(CarDealerContext context, string inputJson)
+        {
+            var output = JsonConvert.DeserializeObject<Customer[]>(inputJson);
+
+            context.Customers.AddRange(output);
+            context.SaveChanges();
+
+            return $"Successfully imported {output.Length}.";
+        }//12
+     
 
 
     }
