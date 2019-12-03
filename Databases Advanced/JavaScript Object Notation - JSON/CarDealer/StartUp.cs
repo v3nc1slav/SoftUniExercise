@@ -34,8 +34,6 @@ namespace CarDealer
                 //var inputJson = File.ReadAllText("./../../../Datasets/customers.json");//12
                 //var result = ImportCars(db, inputJson);//12
 
-               
-
                 Console.WriteLine(result);
             }
         }
@@ -102,8 +100,5 @@ namespace CarDealer
 
             return $"Successfully imported {output.Length}.";
         }//12
-     
-
-
     }
 }
