@@ -34,6 +34,13 @@ namespace CarDealer
                 //var inputJson = File.ReadAllText("./../../../Datasets/customers.json");//12
                 //var result = ImportCars(db, inputJson);//12
 
+                //var inputJson = File.ReadAllText("./../../../Datasets/sales.json");//13
+                //var result = ImportCars(db, inputJson);//13
+
+                //var result = GetOrderedCustomers(db);//14
+
+               
+
                 Console.WriteLine(result);
             }
         }
@@ -100,5 +107,34 @@ namespace CarDealer
 
             return $"Successfully imported {output.Length}.";
         }//12
+        public static string ImportSales(CarDealerContext context, string inputJson)
+        {
+            var output = JsonConvert.DeserializeObject<Sale[]>(inputJson);
+
+            context.Sales.AddRange(output);
+            context.SaveChanges();
+
+            return $"Successfully imported {output.Length}.";
+        }//13
+        public static string GetOrderedCustomers(CarDealerContext context)
+        {
+            var output = context
+                .Customers
+                .OrderBy(c => c.BirthDate)
+                .ThenBy(c => c.IsYoungDriver)
+                .Select(c => new
+                {
+                    Name = c.Name,
+                    BirthDate = c.BirthDate.ToString("dd/MM/yyyy"),
+                    IsYoungDriver = c.IsYoungDriver
+                })
+                .ToArray();
+
+            var jsonProducts = JsonConvert.SerializeObject(output, Formatting.Indented);
+            return jsonProducts;
+        }//14
+
+
+
     }
 }
