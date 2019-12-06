@@ -39,7 +39,9 @@ namespace CarDealer
 
                 //var result = GetOrderedCustomers(db);//14
 
-               
+                //var result = GetCarsFromMakeToyota(db);//15
+
+                //var result = GetLocalSuppliers(db);/16
 
                 Console.WriteLine(result);
             }
@@ -133,7 +135,42 @@ namespace CarDealer
             var jsonProducts = JsonConvert.SerializeObject(output, Formatting.Indented);
             return jsonProducts;
         }//14
+        public static string GetCarsFromMakeToyota(CarDealerContext context)
+        {
+            var output = context
+                .Cars
+                .Where(c => c.Make == "Toyota")
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TravelledDistance)
+                .Select(c => new
+                {
+                    Id = c.Id,
+                    Make = c.Make,
+                    Model = c.Model,
+                    TravelledDistance = c.TravelledDistance
+                })
+                .ToArray();
 
+
+            var jsonProducts = JsonConvert.SerializeObject(output, Formatting.Indented);
+            return jsonProducts;
+        }//15
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            var output = context
+                  .Suppliers
+                  .Where(s => s.IsImporter == false)
+                  .Select(c => new
+                  {
+                      c.Id,
+                      c.Name,
+                      PartsCount = c.Parts.Count
+                  })
+                  .ToArray();
+
+            var jsonProducts = JsonConvert.SerializeObject(output, Formatting.Indented);
+            return jsonProducts;
+        }//16
 
 
     }
