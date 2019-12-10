@@ -21,24 +21,23 @@ namespace TeisterMask.DataProcessor.ExportDto
         //       < Label > JavaAdvanced </ Label >
         //     </ Task >
 
+        [XmlAttribute("TasksCount")]
+        public int TasksCount { get; set; }
 
-        [XmlElement("ProjectName")]
         public string ProjectName { get; set; }
 
-        [XmlElement("HasEndDate")]
         public string HasEndDate { get; set; }
 
-        [XmlElement("Tasks")]
-        public ICollection<TaskExportDto> Tasks { get; set; }
+        [XmlArray("Tasks")]
+        public TaskExportDto[] Tasks { get; set; }
 
     }
+
+    [XmlType("Task")]
     public class TaskExportDto
     {
-        [MinLength(2), MaxLength(40)]
-        [XmlElement("Name")]
         public string Name { get; set; }
 
-        [XmlElement("LabelType")]
-        public LabelType LabelType { get; set; }
+        public string Label { get; set; }
     }
 }

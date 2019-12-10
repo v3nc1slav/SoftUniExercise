@@ -37,22 +37,11 @@
 
             foreach (var projectionDto in projectionsDto)
             {
-                //var validEnum = Enum.TryParse<LabelType>(projectionDto.Tasks.Select(t => new {  dad = t.LabelType.ToString() }), out LabelType label);
-
                 var projection = new Project
                 {
 
-                Name = projectionDto.Name,
-                  Tasks = projectionDto.Tasks
-                  .Select(t => new TaskDto
-                  {
-                      Name = t.Name,
-                      OpenDate = t.OpenDate,
-                      DueDate = t.DueDate,
-                      LabelType = t.LabelType.ToString(),
-                      ExecutionType = t.ExecutionType.ToString()
-                  })
-                  .ToArray()
+                //Name = projectionDto.Name,
+
                 };
 
             projections.Add(projection);

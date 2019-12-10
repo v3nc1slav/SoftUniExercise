@@ -11,8 +11,8 @@ namespace TeisterMask.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(40, MinimumLength = 3)]
-        [RegularExpression(@"([A-Za-z0-9])")]
+        [MinLength(3), MaxLength(40)]
+        [RegularExpression(@"^[A-Za-z0-9]+$")]
         public string Username { get; set; }
 
         [Required]

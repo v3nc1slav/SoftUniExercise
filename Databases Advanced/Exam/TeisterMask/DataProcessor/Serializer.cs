@@ -1,6 +1,7 @@
 ﻿namespace TeisterMask.DataProcessor
 {
     using System;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -17,22 +18,24 @@
         {
             var output = context
                 .Projects
+                .Where(p => p.Tasks.Any())
+                .OrderByDescending(p => p.Tasks.Count())
+                .ThenBy(p => p.Name)
                 .Select(p => new ProjectWithTheirTasksDto
                 {
+                    TasksCount = p.Tasks.Count,
                     ProjectName = p.Name,
-                    HasEndDate = IsHasEndDate(context),
+                    HasEndDate = p.DueDate == null ? "No" : "Yes",
                     Tasks = p.Tasks
-                    .OrderBy(t=>t.Name)
+                    .OrderBy(t => t.Name)
                     .Select(t => new TaskExportDto
                     {
-                     Name = t.Name, 
-
-                     })
+                        Name = t.Name,
+                        Label = t.LabelType.ToString()
+                    })
                     .ToArray()
                 })
-                .OrderByDescending(p=>p.Tasks.Count())
-                .ThenBy(p=>p.ProjectName)
-                .Take(10)
+                
                 .ToArray();
 
 
@@ -60,10 +63,10 @@
                     .Select(em=>new 
                     {
                         TaskName = em.Task.Name,
-                        OpenDate = em.Task.OpenDate,
-                        DueDate = em.Task.DueDate,
-                        LabelType = em.Task.LabelType,
-                        ExecutionType = em.Task.ExecutionType
+                        OpenDate = em.Task.OpenDate.ToString("d", CultureInfo.InvariantCulture),
+                        DueDate = em.Task.DueDate.ToString("d", CultureInfo.InvariantCulture),
+                        LabelType = em.Task.LabelType.ToString(),
+                        ExecutionType = em.Task.ExecutionType.ToString()
                     })
                 })
                 .OrderByDescending(e => e.Tasks.Count())
@@ -74,16 +77,6 @@
             var jsonString = JsonConvert.SerializeObject(output, Formatting.Indented);
             return jsonString;
 
-        }
-        private static string IsHasEndDate(TeisterMaskContext context)
-        {
-            var output = "Yes";
-
-            if (context.Tasks.Where(t=>t.DueDate!=null).Any())
-            {
-                output = "No";
-            }
-            return  output;
         }
     }
 }
