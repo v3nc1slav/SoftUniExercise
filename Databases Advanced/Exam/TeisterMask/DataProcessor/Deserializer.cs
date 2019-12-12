@@ -14,8 +14,6 @@
     using System.Linq;
     using System.Xml.Serialization;
     using System.IO;
-    using static TeisterMask.DataProcessor.ImportDto.ImportProjectsDto;
-    using TeisterMask.DataProcessor.ExportDto;
 
     public class Deserializer
     {
@@ -29,8 +27,8 @@
 
         public static string ImportProjects(TeisterMaskContext context, string xmlString)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ImportProjectionDto[]), new XmlRootAttribute("Projections"));
-            var projectionsDto = (ImportProjectionDto[])xmlSerializer.Deserialize(new StringReader(xmlString));
+            var xmlSerializer = new XmlSerializer(typeof(ImportProjectsDto[]), new XmlRootAttribute("Projections"));
+            var projectionsDto = (ImportProjectsDto[])xmlSerializer.Deserialize(new StringReader(xmlString));
 
             var projections = new List<Project>();
             var sb = new StringBuilder();
@@ -60,40 +58,58 @@
 
         var employeesDtos = JsonConvert.DeserializeObject<ImportEmployeesDto[]>(jsonString);
 
-        var employees = new List<Employee>();
+            StringBuilder sb = new StringBuilder();
 
-        var sb = new StringBuilder();
-
-        foreach (var employeeDtos in employeesDtos)
-        {
-            if (IsValid(employeeDtos))
+            foreach (var employeeDto in employeesDtos)
             {
+
+                if (!IsValid(employeeDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
                 var employee = new Employee
                 {
-                    Username = employeeDtos.Username,
-                    Email = employeeDtos.Email,
-                    Phone = employeeDtos.Phone,
-                    EmployeesTasks = employeeDtos.EmployeesTasks
+                    Username = employeeDto.Username,
+                    Email = employeeDto.Email,
+                    Phone = employeeDto.Phone
                 };
 
-                employees.Add(employee);
-                sb.AppendLine(string.Format(SuccessfullyImportedEmployee, employeeDtos.Username, employeeDtos.EmployeesTasks.Count()));
+                var employeeTasks = new List<EmployeeTask>();
+
+                foreach (var taskId in employeeDto.EmployeesTasks.Distinct())
+                {
+                    var task = context.Tasks.FirstOrDefault(t => t.Id == taskId);
+
+                    if (task == null)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    employeeTasks.Add(new EmployeeTask
+                    {
+                        Employee = employee,
+                        TaskId = task.Id
+                    });
+                }
+
+                employee.EmployeesTasks = employeeTasks;
+
+                context.Employees.Add(employee);
+
+                sb.AppendLine(string.Format(SuccessfullyImportedEmployee,
+                    employee.Username,
+                    employee.EmployeesTasks.Count));
             }
-            else
-            {
-                sb.AppendLine(ErrorMessage);
-            }
+
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
-        context.Employees.AddRange(employees);
-        context.SaveChanges();
-
-        var result = sb.ToString();
-
-        return result;
-    }
-
-    private static bool IsValid(object dto)
+        private static bool IsValid(object dto)
     {
         var validationContext = new ValidationContext(dto);
         var validationResult = new List<ValidationResult>();

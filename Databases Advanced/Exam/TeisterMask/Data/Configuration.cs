@@ -2,6 +2,6 @@
 {
     public static class Configuration
     {
-        public static string ConnectionString = @"Server==(localdb)\mssqllocaldb;Database=TeisterMask;Trusted_Connection=True";
+        public static string ConnectionString = @"Server=(localdb)\mssqllocaldb;Database=TeisterMask;Trusted_Connection=True";
     }
 }
