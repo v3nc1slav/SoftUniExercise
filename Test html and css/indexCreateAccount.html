@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BgRaces</title>
+    <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
+    <link rel="stylesheet" href="skeleton.css">
+</head>
+<body>
+    <header>
+        <H1>
+            <a href="indexHome.html">
+                <i 
+                class="fas fa-flag-checkered">
+                </i>
+            </a>
+        </H1>
+       <nav>
+           <h3>
+           <ul>
+               <li><a href="indexHome.html">Начало</a></li>
+               <li><a href="indexOpinion.html">Мнения</a></li>
+               <li><a href="#">ЧЗВ</a></li>
+               <li><a href="#">Галерия</a></li>
+           </ul>
+        </h3>
+       </nav>
+    </header>   
+    <main>
+       
+<div class="tabContent registration active">
+    <!-- registration -->
+
+    <h3>Създай своя безплатен акаунт сега и да запалим гумите!</h3>
+
+    <div>
+        <form class="cPattern" data-validatemethod="clientvalidate" id="register-user-form" action="/en/register" method="post">
+<input type="hidden" value="c8b000661e75a80989ab62a07bf14e64d420a7ad" name="csrf">			
+                    
+                    
+        <input type="hidden" name="returnUrl" value="https://chess24.com/en/dashboard">
+        <p><input placeholder="Имайл" data-error-required="Please enter your email address" 
+            data-error-email="Please enter a valid email address" data-error-unique="This email address is already in use" 
+            tabindex="1" class="validate[safe,email[skipOnError=1],UserEmailValidator,required,unique] cInputText" 
+            name="RegisterForm[email]" id="RegisterForm_email" type="text"></p>
+        <p><input placeholder="Потребителско име" data-error-required="Please provide your username." 
+            data-error-nick="Please use only letters (A-Z) and numbers (0-9) for your username." 
+            data-error-length="Username must be between 3 and 32 characters" data-error-unique="This username is already in use." 
+            tabindex="2" class="validate[safe,required,length[min=3,max=32,skipOnError=1],NickValidator] cInputText" 
+            name="RegisterForm[nick]" id="RegisterForm_nick" type="text"></p>
+        <p><input placeholder="Парола" data-error-required="Please provide your password" 
+            data-error-length="Password is too short (minimum is 6 characters)." tabindex="3" 
+            class="validate[safe,required,length[min=6,max=128,allowEmpty=,skipOnError=1]] cInputText" 
+            name="RegisterForm[password]" id="RegisterForm_password" type="password"></p>
+        <p><input id="ytRegisterForm_isOldEnough" type="hidden" value="0" name="RegisterForm[isOldEnough]"><label 
+            class="crContainer checkBox" for="RegisterForm_isOldEnough"><input 
+            data-error-required="Please ask your parents to open an account for you." tabindex="4" value="1" 
+            class="validate[required] cPattern" name="RegisterForm[isOldEnough]" id="RegisterForm_isOldEnough" 
+            type="checkbox" data-pattern-checkbox="true"><label class="crImg" for="RegisterForm_isOldEnough"></label>
+
+            <span class="crLabel">Имам навършени 16 или повече години.</span></label></p>
+
+        <p><input tabindex="5" class="creatBoton" type="submit" value="Регистрирай своя акаунт"></p>
+        </form>	
+    	</div>
+</div>
+    </main>
+    <footer>  
+        <H1>
+            <a href="indexHome.html">
+                <i 
+                class="fas fa-flag-checkered">
+                </i>
+            </a>
+        </H1>
+        <nav>
+            <ul>
+                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> </a></li>
+                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a></li>
+                <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a></li>
+            </ul>
+        </nav>  
+    </footer>
+</body>
+</html>
+
