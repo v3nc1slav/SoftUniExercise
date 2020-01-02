@@ -1,27 +1,15 @@
-header nav ul li a{
+header *{
+    background-color: black;
+    display: inline-block;
     text-decoration:  none;
     font-size: 25px;
-    font-weight: 500;
 }
-header h1{
-    float: left;
-}
-header nav{
+header h1 :nth-last-child(1){
     float: right;
 }
-header *{
-    display: inline-block;
-    color: red;
-}
-section{
-    display: inline-block;
-}
-body{
-    background-image: url("images2.jpg");
-    height: 800px; 
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover;
+
+header div h1 div p{
+  float: left;
 }
 main{
     text-decoration:  none;
@@ -29,16 +17,13 @@ main{
     text-align: center;
     color: red;
     font-size: 28px;
-    font-weight: 100;
-}
-main P{
-    font-weight: 100;
 }
 main p a{
     color: red;
     font-size: 20px;
 }
 footer *{
+    background-color: black;
     display: inline-block;
     font-size: 30px;
     color: red;

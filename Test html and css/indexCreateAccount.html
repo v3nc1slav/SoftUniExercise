@@ -8,6 +8,10 @@
     <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
     <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
+    <script> src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "</script>
+    <script> src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
+    <script> src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</script>
 </head>
 <body>
     <header>
@@ -41,20 +45,22 @@
 <input type="hidden" value="c8b000661e75a80989ab62a07bf14e64d420a7ad" name="csrf">			
                     
                     
-        <input type="hidden" name="returnUrl" value="https://chess24.com/en/dashboard">
         <p><input placeholder="Имайл" data-error-required="Please enter your email address" 
             data-error-email="Please enter a valid email address" data-error-unique="This email address is already in use" 
             tabindex="1" class="validate[safe,email[skipOnError=1],UserEmailValidator,required,unique] cInputText" 
-            name="RegisterForm[email]" id="RegisterForm_email" type="text"></p>
+            name="RegisterForm[email]" id="RegisterForm_email" type="text">
+        </p>
         <p><input placeholder="Потребителско име" data-error-required="Please provide your username." 
             data-error-nick="Please use only letters (A-Z) and numbers (0-9) for your username." 
             data-error-length="Username must be between 3 and 32 characters" data-error-unique="This username is already in use." 
             tabindex="2" class="validate[safe,required,length[min=3,max=32,skipOnError=1],NickValidator] cInputText" 
-            name="RegisterForm[nick]" id="RegisterForm_nick" type="text"></p>
+            name="RegisterForm[nick]" id="RegisterForm_nick" type="text">
+        </p>
         <p><input placeholder="Парола" data-error-required="Please provide your password" 
             data-error-length="Password is too short (minimum is 6 characters)." tabindex="3" 
             class="validate[safe,required,length[min=6,max=128,allowEmpty=,skipOnError=1]] cInputText" 
-            name="RegisterForm[password]" id="RegisterForm_password" type="password"></p>
+            name="RegisterForm[password]" id="RegisterForm_password" type="password">
+        </p>
         <p><input id="ytRegisterForm_isOldEnough" type="hidden" value="0" name="RegisterForm[isOldEnough]"><label 
             class="crContainer checkBox" for="RegisterForm_isOldEnough"><input 
             data-error-required="Please ask your parents to open an account for you." tabindex="4" value="1" 
@@ -63,7 +69,7 @@
 
             <span class="crLabel">Имам навършени 16 или повече години.</span></label></p>
 
-        <p><input tabindex="5" class="creatBoton" type="submit" value="Регистрирай своя акаунт"></p>
+            <button  tabindex="5"  type="button" class="btn btn-success">Регистрирай своя акаунт</button>
         </form>	
     	</div>
 </div>

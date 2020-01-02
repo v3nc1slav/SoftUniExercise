@@ -8,45 +8,51 @@
     <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
     <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
+    <script> src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "</script>
+    <script> src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
+    <script> src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</script>
 </head>
 <body>
     <header>
-        <H1>
-            <a href="#">
-                <i 
-                class="fas fa-flag-checkered">
-                </i>
-            </a>
-        </H1>
-       <nav>
-           <h3>
-           <ul>
-               <li><a href="#">Начало</a></li>
-               <li><a href="indexOpinion.html">Мнения</a></li>
-               <li><a href="#">ЧЗВ</a></li>
-               <li><a href="#">Галерия</a></li>
-           </ul>
-        </h3>
-       </nav>
+        <div class="form-group row"></div>
+            <H1>
+                <div class="col-sm-2"></div>
+                   <p><a href="#"> <i class="fas fa-flag-checkered"> </i> </a></p> 
+                </div>
+                <div class="col-sm-4">
+                    <a href="#">Начало</a>
+                    <a href="indexOpinion.html">Мнения</a>
+                    <a href="#">ЧЗВ</a>
+                   <a href="#">Галерия</a>
+                </div>
+            </H1>
+       </div>
     </header>   
     <main>
-        <section
-        class="loginelem">
-            Потребителско Име:&nbsp;</div><input id="loginusername" name="username"
-             type="text" maxlength="50" size="15" tabindex="2">&nbsp;
-        </section>
-        <section class="loginelem">
-            Парола:&nbsp;</div><input id="loginpassword" name="password" 
-            type="password" maxlength="50" size="15" tabindex="3">&nbsp;
-        </section>
+        <form>
+            <div class="form-group row">
+              <label class="form-control-label col-sm-5">Потребителско Име:</label>
+              <div class="col-sm-4">
+                <input class="form-control" type="text" placeholder="Потребителско Име:" maxlength="50" size="15" />
+              </div>
+            </div>
+            <div class="form-group row">
+                
+                <label class="form-control-label col-sm-5">Парола:</label>
+                <div class="col-sm-4">
+                  <input class="form-control" type="password" placeholder="Парола:" maxlength="50" size="15" />
+                </div>
+              </div>
+         </form>
         <p>
-            <input tabindex="5" class="creatBoton" type="submit" value="Вход">
+            <button  tabindex="5"  type="button" class="btn btn-success">Вход</button>
         </p>
         <p>
             <a href="#" onclick="setBox('pwforgotten')">Забравена парола?</a>
         </p>
         <p>
-            <a href="indexCreateAccount.html" onclick="setBox('pwforgotten')">Регистрация</a>
+         <a href="indexCreateAccount.html" onclick="setBox('pwforgotten')">Регистрация</a>
         </p>
     </main>
     <footer>  

@@ -10,19 +10,13 @@ header nav{
     float: right;
 }
 header *{
+    background-color: black;
     display: inline-block;
-    color: red;
 }
 section{
     display: inline-block;
 }
-body{
-    background-image: url("images2.jpg");
-    height: 800px; 
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover;
-}
+
 main{
     padding: 5rem;
     text-align: center;
@@ -38,6 +32,7 @@ main p a{
     font-size: 20px;
 }
 footer *{
+    background-color: black;
     display: inline-block;
     font-size: 30px;
     color: red;
