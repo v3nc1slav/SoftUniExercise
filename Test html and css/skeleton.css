@@ -1,36 +1,33 @@
 header *{
-    background-color: black;
-    display: inline-block;
     text-decoration:  none;
-    font-size: 25px;
+    font-size: 15px;
 }
-header h1 :nth-last-child(1){
+header div  last-child{
     float: right;
+    text-align: right;
 }
 
-header div h1 div p{
-  float: left;
-}
 main{
     text-decoration:  none;
-    padding: 15rem;
+    padding: 11rem;
     text-align: center;
     color: red;
-    font-size: 28px;
+    font-size: 18px;
 }
 main p a{
     color: red;
-    font-size: 20px;
+    font-size: 18px;
 }
+
 footer *{
-    background-color: black;
-    display: inline-block;
-    font-size: 30px;
-    color: red;
+    text-decoration:  none;
+    font-size: 15px;
     letter-spacing: 8px;
-    text-align: left;
+    text-align: right;
 }
-footer nav {
+link{
     float: right;
+    color: brown;
+    text-align: right;
 }
 

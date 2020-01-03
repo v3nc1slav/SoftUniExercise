@@ -7,7 +7,8 @@
     <title>BgRaces</title>
     <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
-    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="skeletonCreateAccount.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
     <script> src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "</script>
     <script> src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
@@ -15,52 +16,83 @@
 </head>
 <body>
     <header>
-        <H1>
-            <a href="indexHome.html">
-                <i 
-                class="fas fa-flag-checkered">
-                </i>
-            </a>
-        </H1>
-       <nav>
-           <h3>
-           <ul>
-               <li><a href="indexHome.html">Начало</a></li>
-               <li><a href="indexOpinion.html">Мнения</a></li>
-               <li><a href="#">ЧЗВ</a></li>
-               <li><a href="#">Галерия</a></li>
-           </ul>
-        </h3>
-       </nav>
-    </header>   
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="indexHome.html"><i class="fas fa-flag-checkered"> </i> </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item ">
+                    <a class="nav-link" href="indexHome.html">Начало <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="indexOpinion.html">Мнения</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="indexFAQ.html">ЧЗВ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Галерия</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Търсене</button>
+                </form>
+              </div>
+            </nav>
+         </div>
+    </header>     
     <main>
        
 <div class="tabContent registration active">
     <!-- registration -->
-
     <h3>Създай своя безплатен акаунт сега и да запалим гумите!</h3>
 
     <div>
         <form class="cPattern" data-validatemethod="clientvalidate" id="register-user-form" action="/en/register" method="post">
 <input type="hidden" value="c8b000661e75a80989ab62a07bf14e64d420a7ad" name="csrf">			
                     
-                    
-        <p><input placeholder="Имайл" data-error-required="Please enter your email address" 
-            data-error-email="Please enter a valid email address" data-error-unique="This email address is already in use" 
-            tabindex="1" class="validate[safe,email[skipOnError=1],UserEmailValidator,required,unique] cInputText" 
-            name="RegisterForm[email]" id="RegisterForm_email" type="text">
-        </p>
-        <p><input placeholder="Потребителско име" data-error-required="Please provide your username." 
-            data-error-nick="Please use only letters (A-Z) and numbers (0-9) for your username." 
-            data-error-length="Username must be between 3 and 32 characters" data-error-unique="This username is already in use." 
-            tabindex="2" class="validate[safe,required,length[min=3,max=32,skipOnError=1],NickValidator] cInputText" 
-            name="RegisterForm[nick]" id="RegisterForm_nick" type="text">
-        </p>
-        <p><input placeholder="Парола" data-error-required="Please provide your password" 
-            data-error-length="Password is too short (minimum is 6 characters)." tabindex="3" 
-            class="validate[safe,required,length[min=6,max=128,allowEmpty=,skipOnError=1]] cInputText" 
-            name="RegisterForm[password]" id="RegisterForm_password" type="password">
-        </p>
+        <form>
+            <fieldset>
+              <div class="form-group">
+                <div class="form-group row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                <label for="exampleInputEmail1">Имайл:</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Имайл" data-error-required="Please enter your email address" 
+                data-error-email="Please enter a valid email address" data-error-unique="This email address is already in use" 
+                tabindex="1" class="validate[safe,email[skipOnError=1],UserEmailValidator,required,unique] cInputText" >
+            </div> </div> </div> 
+            <div class="col-sm-4"></div>
+              <div class="form-group">
+                <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                <label for="exampleInputEmail1">Потребителско Име:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Потребителско име" data-error-required="Please provide your username." 
+                data-error-nick="Please use only letters (A-Z) and numbers (0-9) for your username." 
+                data-error-length="Username must be between 3 and 32 characters" data-error-unique="This username is already in use." 
+                tabindex="2" class="validate[safe,required,length[min=3,max=32,skipOnError=1],NickValidator] cInputText" >
+            </div> </div> </div> 
+            <div class="col-sm-4"></div>
+              <div class="form-group">
+                <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                <label for="exampleInputPassword1">Парола:</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Парола"
+                 data-error-required="Please provide your password" data-error-length="Password is too short 
+                (minimum is 6 characters)." tabindex="3" class="validate[safe,required,length[min=6,max=128,
+                allowEmpty=,skipOnError=1]] cInputText"  >
+            </div> </div> </div> 
+            <div class="col-sm-4"></div>
+            </fieldset>
+        </form>
         <p><input id="ytRegisterForm_isOldEnough" type="hidden" value="0" name="RegisterForm[isOldEnough]"><label 
             class="crContainer checkBox" for="RegisterForm_isOldEnough"><input 
             data-error-required="Please ask your parents to open an account for you." tabindex="4" value="1" 
@@ -72,24 +104,35 @@
             <button  tabindex="5"  type="button" class="btn btn-success">Регистрирай своя акаунт</button>
         </form>	
     	</div>
-</div>
+        </div>
     </main>
     <footer>  
-        <H1>
-            <a href="indexHome.html">
-                <i 
-                class="fas fa-flag-checkered">
-                </i>
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#"><i class="fas fa-flag-checkered"> </i> </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="link">
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item ">
+                    <a class="nav-link"  href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a>
+                  </li>
+                </ul>
+              </div>
             </a>
-        </H1>
-        <nav>
-            <ul>
-                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> </a></li>
-                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a></li>
-                <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a></li>
-            </ul>
-        </nav>  
+            </nav>
+         </div>
     </footer>
 </body>
 </html>

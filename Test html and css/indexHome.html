@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
     <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
     <script> src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "</script>
     <script> src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
@@ -15,36 +16,57 @@
 </head>
 <body>
     <header>
-        <div class="form-group row"></div>
-            <H1>
-                <div class="col-sm-2"></div>
-                   <p><a href="#"> <i class="fas fa-flag-checkered"> </i> </a></p> 
-                </div>
-                <div class="col-sm-4">
-                    <a href="#">Начало</a>
-                    <a href="indexOpinion.html">Мнения</a>
-                    <a href="#">ЧЗВ</a>
-                   <a href="#">Галерия</a>
-                </div>
-            </H1>
-       </div>
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#"><i class="fas fa-flag-checkered"> </i> </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Начало <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="indexOpinion.html">Мнения</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="indexFAQ.html">ЧЗВ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Галерия</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Търсене</button>
+                </form>
+              </div>
+            </nav>
+         </div>
     </header>   
     <main>
         <form>
-            <div class="form-group row">
-              <label class="form-control-label col-sm-5">Потребителско Име:</label>
-              <div class="col-sm-4">
-                <input class="form-control" type="text" placeholder="Потребителско Име:" maxlength="50" size="15" />
-              </div>
-            </div>
-            <div class="form-group row">
-                
-                <label class="form-control-label col-sm-5">Парола:</label>
-                <div class="col-sm-4">
-                  <input class="form-control" type="password" placeholder="Парола:" maxlength="50" size="15" />
-                </div>
-              </div>
-         </form>
+            <fieldset>
+              <div class="form-group">
+                <div class="form-group row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                <label for="exampleInputEmail1">Потребителско Име:</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 placeholder="Потребителско Име:"  maxlength="50" size="15" >
+              </div> </div> </div> 
+              <div class="col-sm-4"></div>
+              <div class="form-group">
+                <div class="form-group row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                <label for="exampleInputPassword1">Парола:</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Парола:" maxlength="50" size="15" >
+            </div> </div> </div> 
+            <div class="col-sm-4"></div>
+            </fieldset>
+        </form>
         <p>
             <button  tabindex="5"  type="button" class="btn btn-success">Вход</button>
         </p>
@@ -56,21 +78,32 @@
         </p>
     </main>
     <footer>  
-        <H1>
-            <a href="#">
-                <i 
-                class="fas fa-flag-checkered">
-                </i>
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#"><i class="fas fa-flag-checkered"> </i> </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="link">
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item ">
+                    <a class="nav-link"  href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a>
+                  </li>
+                </ul>
+              </div>
             </a>
-        </H1>
-        <nav>
-            <ul>
-                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> </a></li>
-                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a></li>
-                <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a></li>
-            </ul>
-        </nav>  
+            </nav>
+         </div>
     </footer>
 </body>
 </html>

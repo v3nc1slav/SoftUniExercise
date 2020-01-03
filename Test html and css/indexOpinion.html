@@ -1,60 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BgRaces</title>
-    <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
-    <link rel="stylesheet" href="skeleton.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
-    <script> src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "</script>
-    <script> src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
-    <script> src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>BgRaces</title>
+        <script src="https://kit.fontawesome.com/fdeca5c444.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" sizes="16x16" href="download.jfif">
+        <link rel="stylesheet" href="skeleton.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
+        <script> src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "</script>
+        <script> src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
+        <script> src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</script>
+    </head>
 <body>
     <header>
-        <H1>
-            <a href="indexHome.html">
-                <i 
-                class="fas fa-flag-checkered">
-                </i>
-            </a>
-        </H1>
-       <nav>
-           <h3>
-           <ul>
-               <li><a href="indexHome.html">Начало</a></li>
-               <li><a href="#">Мнения</a></li>
-               <li><a href="#">ЧЗВ</a></li>
-               <li><a href="#">Галерия</a></li>
-           </ul>
-        </h3>
-       </nav>
-    </header>   
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="indexHome.html"><i class="fas fa-flag-checkered"> </i> </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item ">
+                    <a class="nav-link" href="indexHome.html">Начало <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Мнения</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="indexFAQ.html">ЧЗВ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Галерия</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Търсене</button>
+                </form>
+              </div>
+            </nav>
+         </div>
+    </header>     
     <main>
-        <textarea name="question" id="question" cols="80" rows="10" class="flL w200"></textarea>
-        <p>
-            <button>Побликувай</button>
+        <div class="form-group">
+            <textarea class="form-control" id="exampleTextarea" cols="50" rows="2" class="flL w200"></textarea>
+          </div>
+          <button type="button" class="btn btn-secondary">Побликувай</button>
+          <p>
+          <div class="alert alert-dismissible alert-secondary">
+            <strong>Тук</strong> ще се побликуват мнения!
+          </div>
         </p>
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button type="button" class="btn btn-secondary">1</button>
+              <button type="button" class="btn btn-secondary">2</button>
+              <button type="button" class="btn btn-secondary">3</button>
+              <button type="button" class="btn btn-secondary">4</button>
+            </div>
     </main>
     <footer>  
-        <H1>
-            <a href="indexHome.html">
-                <i 
-                class="fas fa-flag-checkered">
-                </i>
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#"><i class="fas fa-flag-checkered"> </i> </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="link">
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item ">
+                    <a class="nav-link"  href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a>
+                  </li>
+                </ul>
+              </div>
             </a>
-        </H1>
-        <nav>
-            <ul>
-                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> </a></li>
-                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a></li>
-                <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a></li>
-            </ul>
-        </nav>  
+            </nav>
+         </div>
     </footer>
 </body>
 </html>
