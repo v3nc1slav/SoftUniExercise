@@ -11,13 +11,28 @@ main{
     text-decoration:  none;
     padding: 11rem;
     text-align: center;
-    color: red;
+    color:#3366FF;
     font-size: 18px;
+    background-image: url(DS3WRC.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
-main p a{
-    color: red;
-    font-size: 18px;
+.background{
+    background: #839496 linear-gradient(180deg, #96a4a6, #839496) repeat-x;
+    border-color: #d6d8db;
+    background-clip: border-box;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    display: block;
+    opacity: 0.95;
 }
+#backgroundOthers{
+    width: 100%;
+    height: 100%;
+}
+
 
 footer *{
     text-decoration:  none;
