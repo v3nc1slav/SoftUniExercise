@@ -27,6 +27,20 @@ main p a{
     color: red;
     font-size: 10px;
 }
+.background{
+    background: #839496 linear-gradient(180deg, #96a4a6, #839496) repeat-x;
+    border-color: #d6d8db;
+    background-clip: border-box;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    opacity: 0.95;
+}
+#backgroundOthers{
+    width: 80%;
+    height: 80%;
+}
+
 
 footer *{
     text-decoration:  none;
