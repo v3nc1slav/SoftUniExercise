@@ -1,24 +1,26 @@
-header *{
-    text-decoration:  none;
+header * {
+    text-decoration: none;
     font-size: 15px;
 }
-header div  last-child{
+
+header div last-child {
     float: right;
     text-align: right;
 }
 
-main{
-    text-decoration:  none;
+main {
+    text-decoration: none;
     padding: 11rem;
     text-align: center;
-    color:#3366FF;
+    color: #3366FF;
     font-size: 18px;
     background-image: url(DS3WRC.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
-.background{
+
+.background {
     background: #839496 linear-gradient(180deg, #96a4a6, #839496) repeat-x;
     border-color: #d6d8db;
     background-clip: border-box;
@@ -28,19 +30,80 @@ main{
     display: block;
     opacity: 0.95;
 }
-#backgroundOthers{
+
+#backgroundOthers {
     width: 100%;
     height: 100%;
 }
 
-footer *{
-    text-decoration:  none;
+footer * {
+    text-decoration: none;
     font-size: 15px;
     letter-spacing: 8px;
     text-align: right;
 }
-link{
+
+link {
     float: right;
     color: brown;
     text-align: right;
+}
+
+.tabs {
+    float: left;
+    border: 1px solid #d6d8db;
+    ;
+    width: 100%;
+    height: 500px;
+    background: #839496 linear-gradient(180deg, #96a4a6, #839496) repeat-x;
+    border-color: #d6d8db;
+    border-radius: 10px;
+    opacity: 0.95;
+}
+
+    .tabs button {
+        display: block;
+        background: #839496 linear-gradient(180deg, #96a4a6, #839496) repeat-x;
+        border-color: #d6d8db;
+        border-radius: 10px;
+        opacity: 0.95;
+        color: black;
+        padding: 22px 16px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+        .tabs button:hover {
+            margin: 1rem;
+            background: #839496 linear-gradient(180deg, #eff3f3, #839496) repeat-x;
+            border-color: #d6d8db;
+            border-radius: 10px;
+            opacity: 0.95;
+        }
+
+        .tabs button.active {
+            background: #eff3f3 linear-gradient(180deg, #eff3f3, #839496) repeat-x;
+            border-color: #d6d8db;
+            border-radius: 10px;
+            opacity: 0.95;
+        }
+
+.tabcontent {
+    float: left;
+    background: #839496 linear-gradient(180deg, #96a4a6, #839496) repeat-x;
+    border-color: #d6d8db;
+    border-radius: 10px;
+    opacity: 0.95;
+    width: 100%;
+    border-left: none;
+    height: 500px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
