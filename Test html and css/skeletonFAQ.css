@@ -64,6 +64,7 @@ main{
   border-color: #d6d8db;
   border-radius: 10px;
   opacity: 0.95;
+  color: black;
   width: 100%;
   border-left: none;
   height: 500px;
