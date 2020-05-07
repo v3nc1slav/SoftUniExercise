@@ -8,3 +8,4 @@ function solve(n, m){
 
     console.log(sum);
 }
+solve(5,6);

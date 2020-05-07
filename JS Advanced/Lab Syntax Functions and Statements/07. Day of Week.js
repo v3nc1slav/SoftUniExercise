@@ -29,3 +29,4 @@ function solve(day) {
             break;
     }
 }
+solve("Monday");

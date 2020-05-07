@@ -15,3 +15,5 @@ function solve(x, y, z){
     }
       console.log(`The largest number is ${result}.`);
 }
+
+solve(1, 2 , 3);

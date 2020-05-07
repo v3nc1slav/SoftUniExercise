@@ -7,3 +7,5 @@ function solve(x, y, z){
     console.log(totalLength);
     console.log(averageLength);
 }
+
+solve('chocolate', 'ice cream', 'cake');

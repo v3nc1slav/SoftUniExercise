@@ -24,3 +24,5 @@ function solve(num1, num2, operator){
             break;
     }
 }
+
+solve(1,2,'+');

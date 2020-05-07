@@ -11,3 +11,4 @@ function solve(n){
         console.log(String(array));
     }
 }
+solve(2);

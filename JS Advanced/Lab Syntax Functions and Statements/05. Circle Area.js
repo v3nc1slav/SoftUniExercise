@@ -7,3 +7,5 @@ if(typeof(input)==='number'){
 else{
     console.log(`We can not calculate the circle area, because we receive a ${typeof(input)}.`);
 }}
+
+solve(3);
