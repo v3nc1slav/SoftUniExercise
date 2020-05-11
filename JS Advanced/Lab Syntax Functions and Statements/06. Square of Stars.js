@@ -1,6 +1,5 @@
-function solve(n){
-    "use strict";
-    n= n? n : 5;
+"use strict";
+function solve(n=5){
     for (let i = 0; i < Number(n); i++) {
         let array = "";
 
