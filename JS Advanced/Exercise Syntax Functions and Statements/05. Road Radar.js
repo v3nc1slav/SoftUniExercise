@@ -1,3 +1,4 @@
+function main(){
 function solve(array){
     "use strict";
     let speed = array[0];
@@ -19,6 +20,7 @@ function solve(array){
         speedCheck(speed, residential)
     }
 }
+
 function speedCheck(speed, motorway){
     "use strict";
     let value = speed-motorway;
@@ -34,7 +36,7 @@ function speedCheck(speed, motorway){
     else if(value>40){
         console.log(`reckless driving`);
     }
-}
+}}
 solve([40, 'city']);
 solve([21, 'residential']);
 solve([120, 'interstate']);
