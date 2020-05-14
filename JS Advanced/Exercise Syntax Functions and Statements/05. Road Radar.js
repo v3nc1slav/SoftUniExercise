@@ -1,4 +1,4 @@
-function main(){
+function main(){//for judge.softuni
 function solve(array){
     "use strict";
     let speed = array[0];
