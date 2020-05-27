@@ -30,7 +30,7 @@ function newMatrix() {
         for (let col = 0; col < matrix[row].length; col++) {
            if (!isDiagonal(row,col)) {
                matrix[row][col]=firstDiagonalSum
-           } 
+           }
         }
     }
 }
