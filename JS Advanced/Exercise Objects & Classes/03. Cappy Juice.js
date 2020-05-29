@@ -17,11 +17,16 @@ function solve(input){
         obj[key] = Math.floor(obj[key]/1000)
     });
 
+   for (let [key, value] of Object.entries(obj)) {
+       if (value!=0) {
+        console.log(`${key} => ${value}`);
+       }
+    }
 }
 
-console.log(solve(['Orange => 2000',
+solve(['Orange => 2000',
 'Peach => 1432',
 'Banana => 450',
 'Peach => 600',
 'Strawberry => 549']
-));
+);
