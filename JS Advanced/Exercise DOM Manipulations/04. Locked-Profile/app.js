@@ -1,26 +1,23 @@
 function lockedProfile() {
 
-   const div = document.getElementsByClassName("profile")
+    document.querySelector("main").addEventListener('click', onClick);
 
-   for (const profile of div) {
-    let btn = profile.getElementsByTagName("button")[0];
-    const unlock = profile.getElementsByTagName("input")[1];
-    let hiddenInfo = profile.getElementsByTagName("div")[0];
-
-   btn.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    if (unlock.checked === true) {
-        if ( btn.textContent ==="Hide it") {
-            hiddenInfo.style.display  = "none";
-            btn.textContent ="Show more";
+    function onClick(e){
+        let btn = e.target.nodeName;
+        if (btn === "BUTTON") {
+            const parent = e.target.parentNode;
+            let hiddenInfo = parent.getElementsByTagName("div")[0];
+            const unlock = parent.getElementsByTagName("input")[1];
+            if (unlock.checked === true) {
+                if (hiddenInfo.style.display === "block") {
+                    hiddenInfo.style.display = "";
+                    e.target.textContent = "Show more";
+                }
+                else {
+                    hiddenInfo.style.display = "block";
+                    e.target.textContent = "Hide it";
+                }
+            }
         }
-        else{
-            hiddenInfo.style.display  = "block";
-            btn.textContent ="Hide it";
-        }    
     }
-
-    });
-}
 }
