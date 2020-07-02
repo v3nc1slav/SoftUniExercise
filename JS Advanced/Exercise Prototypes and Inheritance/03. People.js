@@ -63,3 +63,5 @@ function solve(){
         Manager
     } 
 }
+
+solve()
