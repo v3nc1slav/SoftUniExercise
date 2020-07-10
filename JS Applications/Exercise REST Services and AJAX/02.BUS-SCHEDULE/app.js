@@ -18,12 +18,9 @@ function solve() {
             name = data.name;
             next = data.next;
             disabled();
-            //console.log(next);
         }
     }
-    //console.log(next);
     function arrive() {
-        //console.log(next);
         input.info().textContent = `Arriving at ${name}`;
         disabled();
 
