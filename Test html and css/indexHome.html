@@ -109,3 +109,18 @@
     </footer>
 </body>
 </html>
+<script>
+var myHeaders = new Headers();
+myHeaders.append("Cookie", "bst_=2788a83bb4f469283b248e37de37e0d35fa35775");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("http://www.toto.bg/results/5x35/2020-53", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+</script>
