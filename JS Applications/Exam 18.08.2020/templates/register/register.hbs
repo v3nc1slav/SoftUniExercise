@@ -1,0 +1,23 @@
+{{>header}}
+
+<h1>Register</h1>
+        <p class="form-info">Already registered?
+            <a href="#/login">Login now</a> and have some fun!
+        </p>
+        <form action="#/register" method="post">
+            <div>
+                <input type="email" class="form-control" placeholder="Email..." name="email" value="">
+            </div>
+            <div>
+                <input type="password" class="form-control" placeholder="Password" name="password" value="">
+            </div>
+            <div>
+                <input type="password"class="form-control" placeholder="Re-password" name="rePassword" value="">
+            </div>
+            <div>
+                <p class="message"></p>
+                <button >Register</button>
+            </div>
+        </form>
+
+{{> footer}}

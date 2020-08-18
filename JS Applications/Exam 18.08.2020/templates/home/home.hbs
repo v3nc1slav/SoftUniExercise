@@ -1,0 +1,31 @@
+{{>header}}
+ {{#if userEmail}}
+    {{#if events}}
+     <div class="shoes">
+        {{#each events}}
+         <div class="shoe">
+            <img src={{imageUrl}}>
+            <h3>{{name}}</h3>
+            <a href="#/details/{{objectId}}" >Buy it for $ {{price}}</a>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+        <h1>No shoes to display.Le the fifst to create a new offer...</h1>
+    {{/if}}
+    {{else}}
+    <main>
+        <div class="container">
+            <div class="about-us">
+                <div>
+                    <img src="../public/shoes.jpg" alt="">
+                    <img src="../public/shoes2.jpg" alt="">
+                </div>
+                <p>
+                    <a href="#/register">Register Now</a> and Try it!
+                </p>
+            </div>
+        </div>
+        </main>
+    {{/if}}
+{{> footer}}
